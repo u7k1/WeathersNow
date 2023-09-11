@@ -47,11 +47,25 @@ def getWeather():
     t.config(text=(temp,'°'))
         
     if temp > 30:
+        def setLogo(image_path):
+            # Logo_image = PhotoImage(file=image_path)
+            # logo.config(image=Logo_image, width=195, height=195)
+            # logo.image = Logo_image
+            logo_image = Image.open(image_path)
+            image_width = 195
+            image_height = 195
+        setLogo('sunny.png')
         t.config(fg='red')
         c.config(fg='red')
     else:
+        
+        Logo_image = PhotoImage(file='org_logo.png')
+        logo.config(image=Logo_image)
+        logo.image = Logo_image
         t.config(fg='blue')
         c.config(fg='blue')
+        #root.update()
+    root.update()
 
     w.config(text=wind)
     h.config(text=humidity)
